@@ -36,14 +36,7 @@ export default function Contact() {
           {contacts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 h-fit">
               {contacts.map((c, i) => (
-                <ContactItem
-                  key={i}
-                  firstName={c.firstName}
-                  lastName={c.lastName}
-                  isActive={c.isActive}
-                  addedOn={c.addedOn}
-                  id={c.id}
-                />
+                <ContactItem key={i} contact={c} />
               ))}
             </div>
           ) : (

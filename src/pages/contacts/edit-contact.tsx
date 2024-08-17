@@ -21,7 +21,7 @@ export default function EditContact() {
   return (
     <Page className="flex-col">
       <div className="text-xl font-semibold pb-2 text-primary border-b-[1px] border-b-dark-secondary/30 mb-10">
-        Edit contact
+        Edit Contact
       </div>
       <ContactForm contact={contact} onSave={handleOnSave} />
     </Page>

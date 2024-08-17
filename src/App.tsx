@@ -6,6 +6,7 @@ import Contacts from './pages/contacts/contacts';
 import AddContact from './pages/contacts/add-contact';
 import ToastCard from './components/common/toast-card';
 import EditContact from './pages/contacts/edit-contact';
+import ViewContact from './pages/contacts/view-contact';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route path="/" element={<Navigate to="/contacts" />} />
               <Route path="contacts" element={<Contacts />}>
                 <Route path="add" element={<AddContact />} />
+                <Route path=":contactId" element={<ViewContact />} />
                 <Route path="edit/:contactId" element={<EditContact />} />
               </Route>
               <Route path="charts-and-maps" element={<ChartsAndMaps />} />

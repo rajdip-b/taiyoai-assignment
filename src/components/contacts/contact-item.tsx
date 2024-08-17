@@ -1,4 +1,4 @@
-import { DeleteRounded, EditRounded } from '@mui/icons-material';
+import { DeleteRounded, EditRounded, InfoRounded } from '@mui/icons-material';
 import IContact from '../../types';
 import { useDispatch } from 'react-redux';
 import React from 'react';
@@ -18,9 +18,10 @@ const getFormattedDate = (date?: Date) => {
   return `${month} ${day}, ${year}`;
 };
 
-export default function ContactItem({ firstName, lastName, isActive, addedOn, id }: IContact) {
+export default function ContactItem({ contact, disableActions }: { contact: IContact; disableActions?: boolean }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { id, firstName, lastName, addedOn, isActive } = contact;
 
   const handleDeleteContact = React.useCallback(() => {
     const confirmDelete = window.confirm('Are you sure you want to delete this contact?');
@@ -31,6 +32,10 @@ export default function ContactItem({ firstName, lastName, isActive, addedOn, id
 
   const handleEditContact = React.useCallback(() => {
     navigate(`/contacts/edit/${id}`);
+  }, [navigate, id]);
+
+  const handleViewContact = React.useCallback(() => {
+    navigate(`/contacts/${id}`);
   }, [navigate, id]);
 
   return (
@@ -49,14 +54,19 @@ export default function ContactItem({ firstName, lastName, isActive, addedOn, id
       </div>
       <div className="flex flex-row justify-between items-center">
         <div className="text-sm font-light mt-2">Added on: {getFormattedDate(addedOn)}</div>
-        <div className="flex flex-row gap-x-3 text-dark-secondary group-hover:opacity-100 opacity-0 transition-all duration-200">
-          <button onClick={handleEditContact}>
-            <EditRounded fontSize="small" />
-          </button>
-          <button onClick={handleDeleteContact}>
-            <DeleteRounded fontSize="small" />
-          </button>
-        </div>
+        {!disableActions && (
+          <div className="flex flex-row gap-x-3 text-dark-secondary group-hover:opacity-100 opacity-0 transition-all duration-200">
+            <button onClick={handleViewContact}>
+              <InfoRounded fontSize="small" />
+            </button>
+            <button onClick={handleEditContact}>
+              <EditRounded fontSize="small" />
+            </button>
+            <button onClick={handleDeleteContact}>
+              <DeleteRounded fontSize="small" />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

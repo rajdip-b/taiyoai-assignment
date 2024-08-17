@@ -77,7 +77,7 @@ export default function ContactForm({ onSave, contact }: { onSave: (contact: ICo
       </div>
       <div className="flex flex-col w-full">
         <div className="text-lg text-dark-secondary">Preview</div>
-        <ContactItem firstName={form.firstName} lastName={form.lastName} isActive={form.isActive} />
+        <ContactItem contact={form} disableActions={true} />
       </div>
     </div>
   );
