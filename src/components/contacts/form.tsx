@@ -72,8 +72,8 @@ export default function ContactForm({ onSave, contact }: { onSave: (contact: ICo
       <Input name="lastName" type="text" placeholder="Last Name" value={form.lastName} onChange={onChange} />
       <Switch name="isActive" value={form.isActive} title="Active" onChange={onChange} />
       <div className="flex flex-col md:flex-row gap-3">
-        <Button onClick={handleCancelClick} text="Cancel" type="secondary" className="w-[50%]" />
-        <Button onClick={handleSaveClick} text="Save" className="w-[50%]" />
+        <Button onClick={handleCancelClick} text="Cancel" type="secondary" className="md:w-[50%]" />
+        <Button onClick={handleSaveClick} text="Save" className="md:w-[50%]" />
       </div>
       <div className="flex flex-col w-full">
         <div className="text-lg text-dark-secondary">Preview</div>

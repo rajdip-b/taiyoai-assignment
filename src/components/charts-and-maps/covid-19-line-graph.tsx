@@ -121,7 +121,7 @@ export default function Covid19LineGraph() {
         xAxisFormatter={(date) => moment(date).format('DD/MM/YYYY')}
         yAxisFormatter={(value) => `${Math.ceil(value / 1000000)}mn`}
       />
-      <div className="flex gap-x-10 w-full flex-row">
+      <div className="flex gap-10 w-full flex-col md:flex-row">
         <Graph
           title="Recovered"
           graphData={graphData}

@@ -3,7 +3,7 @@ import React from 'react';
 
 function Card({ title, quantity }: { title: string; quantity: number }) {
   return (
-    <div className="border-gray-400 flex flex-col gap-y-4 border-2 rounded-lg p-5 w-1/3">
+    <div className="border-gray-400 flex flex-col gap-y-4 border-2 rounded-lg p-5 md:w-1/3">
       <div className="text-primary font-semibold text-2xl">{quantity}</div>
       <div className="text-dark-secondary font-light text-xl">{title}</div>
     </div>
@@ -46,7 +46,7 @@ export default function Statistics() {
   return (
     <div className="w-full flex flex-col mb-5">
       <div className="text-xl font-light mb-5">Statistics</div>
-      <div className="w-full flex-row flex gap-5">
+      <div className="w-full flex-col md:flex-row flex gap-5">
         {items.map((item, i) => (
           <Card key={i} title={item.title} quantity={item.quantity} />
         ))}
